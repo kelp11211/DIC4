@@ -1,8 +1,9 @@
 # AirGuard AI — 智慧空氣品質預測與生活決策代理人
 
 > **課程名稱**：物聯網數據分析與應用（AIoT-DA）  
-> **專案性質**：三人團體期末專題  
-> **目前階段**：提案與系統設計階段（Proposal & System Design Phase）  
+> **專案性質**：三人團體期末專題 × IEEE ICEIB 學術論文規劃  
+> **目前階段**：提案與系統設計、OpenSpec 規格規劃與 IEEE ICEIB 論文撰寫準備階段  
+> **GitHub 儲存庫**：<https://github.com/kelp11211/DIC4>  
 > **組員名單**：組長：林宏陽（7115056179）｜組員：蔡明憲（7115056013）、許鈵昆（8114056002）
 
 ---
@@ -112,35 +113,85 @@ W1 (資料盤點)  ──▶  W2 (模型基線)  ──▶  W3 (Agent 核心)  �
 
 ---
 
+## IEEE ICEIB 研討會論文規劃 (`ICEIB paper/`)
+
+本專案同步籌備投稿 **[IEEE ICEIB](https://www.iceib.asia/)**（*IEEE International Conference on Electronic Communications, Internet of Things and Big Data*）之英文研討會論文，採用標準 `IEEEtran` 雙欄會議格式（`\documentclass[conference,a4paper]{IEEEtran}`），並依循 [`myplan/A2Z outline example.pdf`](myplan/A2Z%20outline%20example.pdf) 之 **2020 A–Z 科研論文 SOP** 與 [`myplan/空品決策代理人.md`](myplan/%E7%A9%BA%E5%93%81%E6%B1%BA%E7%AD%96%E4%BB%A3%E7%90%86%E4%BA%BA.md) 進行結構化撰寫：
+
+| 對應 OpenSpec 變更 | 目標分段檔案 | 論文區段 | A–Z SOP 涵蓋範圍 |
+| :--- | :--- | :--- | :--- |
+| `000-abstract` | `ICEIB paper/000-Abstract.txt`（及 `main.txt` 組裝檔頭） | **Abstract** | `A–F`（Attention, But, Cure, Development, Experiments, Expected Findings） |
+| `001-introduction` | `ICEIB paper/001-Introduction.txt` | **I. Introduction** | `G–L`（General, However, In literature, Judgement/SWOT, Keypoints, List org） |
+| `002-related-work` | `ICEIB paper/002-Related Work.txt` | **II. Related Work** | `M–O`（AI 50% + Domain 50%、8 欄文獻表、4×5 SWOT 與 Research Gap） |
+| `003-proposed-design` | `ICEIB paper/003-Proposed Design.txt` | **III. Proposed Design** | `PA–PM`（八大模組 ①–⑧、架構圖與流程圖、Algorithm 1/2、走查與形式化） |
+| `004-experiment` | `ICEIB paper/004-Experiment.txt` | **IV. Experiment** | `Q–V`（Track A 時序回測指標／基線／消融、Track B ≥30 安全情境驗證） |
+| `005-conclusion` | `ICEIB paper/005-Conclusion.txt` | **V. Conclusion** | `W–Z`（回顧、優勢場景、預期產出、W1–W6 路線、四大限制與風險矩陣） |
+| `006-reference` | `ICEIB paper/006-Reference.txt`（及 `main.txt` 總裝驗證） | **References** | IEEE `\bibitem` 書目溯源與跨檔 LaTeX 結構檢查 |
+
+> [!NOTE]
+> 目前 [`ICEIB paper/main.txt`](ICEIB%20paper/main.txt) 已完成整體初稿；上述 `000-abstract` 至 `006-reference` 已建立完整 OpenSpec 規格，待執行 `/opsx-apply` 進行模組化拆分與 A2Z 細部對齊。
+
+---
+
 ## 專案結構 (Repository Structure)
 
 ```text
-DIC3-ProjectRefactor/
-├── .agents/                 # OpenSpec 與 Antigravity AI 輔助工作流程配置
-│   ├── skills/              # openspec-propose, apply, archive 等自定義技能
-│   └── workflows/           # 規格驅動開發指令與引導流程
-├── myplan/                  # 期末專案提案規劃與科研 SOP 參考文件
-│   ├── DESIGN.md            # AirGuard AI 完整系統架構與實作設計規格書
-│   ├── A2Z outline example.pdf
-│   ├── AirGuard_AI_Final_Proposal.docx
-│   └── 空品決策代理人.md
-├── openspec/                # OpenSpec 規格驅動開發資料庫
-│   ├── config.yaml          # OpenSpec 設定檔 (語言: zh-TW)
-│   ├── changes/             # 進行中與已歸檔之變更提案
-│   └── specs/               # 系統能力規格庫 (Source of Truth)
-├── .gitignore               # Git 忽略設定
-└── README.md                # 專案首頁說明文件（本檔案）
+DIC4/
+├── ICEIB paper/                                        # IEEE ICEIB 研討會論文撰寫區
+│   └── main.txt                                        # IEEEtran 雙欄會議論文初稿（可更名為 main.tex 編譯）
+├── .agents/                                            # OpenSpec 與 Antigravity AI 輔助工作流程配置
+│   ├── skills/                                         # openspec-propose, apply, update, sync, archive, explore 等技能
+│   └── workflows/                                      # 規格驅動開發指令與引導流程（opsx-*.md）
+├── myplan/                                             # 期末專案提案規劃、科研 SOP 與佐證資料
+│   ├── DESIGN.md                                       # AirGuard AI 完整系統架構與實作設計規格書
+│   ├── A2Z outline example.pdf                         # 2020 A-Z 科研論文寫作 SOP 原始範例
+│   ├── AirGuard AI 完整 A2Z 科研提案資訊圖表.png         # A2Z 26 步驟系統性解析資訊圖表
+│   ├── AirGuard_AI_Final_Proposal.docx                 # 期末專題正式提案報告書
+│   ├── AirGuard_AI_infographic_conversation_2026-11-11.md # 資訊圖表編修與 A2Z 對齊紀錄
+│   ├── INTRODUCTION_REFACTOR.md                        # 緒論（G–L）重構與實證資料對齊稿
+│   ├── RELATED_WORK_REFACTOR.md                        # 相關研究（M–O）與 8 欄文獻表重構稿
+│   ├── 空品決策代理人.md                                # 提案報告與簡報之 A2Z 深度解析文件
+│   ├── 空污 × 戶外運動 AI Agent 提案：研究佐證資料.md    # 2024–2026 公衛、運動醫學與 AI 安全佐證彙整
+│   └── 空污 × 戶外運動 AI Agent：預期貢獻與學術價值.md    # 預期貢獻、創新比較與研究限制說明
+├── openspec/                                           # OpenSpec 規格驅動開發資料庫
+│   ├── config.yaml                                     # OpenSpec 設定檔（schema: spec-driven, 語言: zh-TW）
+│   ├── changes/                                        # 進行中與已歸檔之變更提案
+│   │   ├── init-airguard-foundation/                   # 系統基礎工程、核心契約、資料擷取與 2025 AQI 規則（0/13 tasks）
+│   │   ├── 000-abstract/                               # ICEIB 論文 000 摘要與主控檔組裝規格（4/4 planning）
+│   │   ├── 001-introduction/                           # ICEIB 論文 001 緒論（G–L）規格（4/4 planning）
+│   │   ├── 002-related-work/                           # ICEIB 論文 002 相關研究（M–O）規格（4/4 planning）
+│   │   ├── 003-proposed-design/                        # ICEIB 論文 003 系統設計（PA–PM）規格（4/4 planning）
+│   │   ├── 004-experiment/                             # ICEIB 論文 004 實驗設計（Q–V）規格（4/4 planning）
+│   │   ├── 005-conclusion/                             # ICEIB 論文 005 結論與限制（W–Z）規格（4/4 planning）
+│   │   ├── 006-reference/                              # ICEIB 論文 006 參考文獻與總裝驗證規格（4/4 planning）
+│   │   └── archive/                                    # 已完成歸檔之變更
+│   └── specs/                                          # 系統能力規格庫（Source of Truth）
+├── .gitignore                                          # Git 忽略設定
+└── README.md                                           # 專案首頁說明文件（本檔案）
 ```
 
 ---
 
 ## 開發規範與規格驅動開發 (Spec-Driven Development)
 
-本專案全面導入 **[OpenSpec](https://github.com/Fission-AI/OpenSpec)** 規格驅動開發工作流程，確保所有功能在實作前皆有清晰的規格邊界、測試情境與資料契約：
+本專案全面導入 **[OpenSpec](https://github.com/Fission-AI/OpenSpec)** 規格驅動開發工作流程，確保系統實作與學術論文撰寫皆具備清晰的規格邊界、測試情境與資料契約：
 
+### Antigravity 對話指令
+* **探索需求**：`/opsx-explore`
 * **提案發起**：`/opsx-propose <變更名稱>`
-* **任務執行**：`/opsx-apply`
-* **規格同步與歸檔**：`/opsx-archive`
+* **更新規劃**：`/opsx-update <變更名稱>`
+* **任務執行**：`/opsx-apply <變更名稱>`（例如 `/opsx-apply init-airguard-foundation` 或 `/opsx-apply 000-abstract`）
+* **規格同步與歸檔**：`/opsx-sync <變更名稱>`、`/opsx-archive <變更名稱>`
+
+### 目前進行中之 OpenSpec 變更
+* **系統實作類**：`init-airguard-foundation`（進行中：`0/13` tasks，涵蓋 `core-contracts`、`data-acquisition`、`domain-rules`）
+* **ICEIB 論文類**：`000-abstract`、`001-introduction`、`002-related-work`、`003-proposed-design`、`004-experiment`、`005-conclusion`、`006-reference`（皆已完成 `4/4` 規劃文件，待 `/opsx-apply` 執行）
+
+### Windows PowerShell CLI 操作（建議使用 `openspec.cmd`）
+```powershell
+openspec.cmd list --json
+openspec.cmd status --change "000-abstract" --json
+openspec.cmd validate 000-abstract
+```
 
 ---
 
@@ -148,7 +199,9 @@ DIC3-ProjectRefactor/
 
 1. 中華民國環境部空氣品質監測網：<https://airtw.moenv.gov.tw/>
 2. 環境部空氣品質指標（AQI）活動建議（2025 修訂版）：<https://airtw.moenv.gov.tw/cht/Information/Standard/AirQualityIndicatorNew.aspx>
-3. 環境部開放資料平臺（AQX_P_432 / AQX_P_13）：<https://data.moenv.gov.tw/>
+3. 環境部開放資料平臺（`AQX_P_432` / `AQX_P_488` / `AQX_P_13`）：<https://data.moenv.gov.tw/>
 4. World Health Organization (WHO), *Ambient (outdoor) air pollution*, 2024.
-5. Fission-AI / OpenSpec: Spec-Driven Development Framework: <https://github.com/Fission-AI/OpenSpec>
+5. IEEE ICEIB 國際研討會官網：<https://www.iceib.asia/>
+6. Fission-AI / OpenSpec: Spec-Driven Development Framework: <https://github.com/Fission-AI/OpenSpec>
+7. 本專案 GitHub 儲存庫：<https://github.com/kelp11211/DIC4>
 
