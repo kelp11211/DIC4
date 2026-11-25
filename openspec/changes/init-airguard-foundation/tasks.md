@@ -30,3 +30,4 @@
 - 實作完成後執行 `pytest` 確保所有測試通過
 - 執行 `openspec validate init-airguard-foundation` 確認規格完整性
 - 執行 `/opsx-archive` 將能力規格合併至 `openspec/specs/`
+

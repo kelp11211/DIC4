@@ -26,3 +26,4 @@ The system SHALL encapsulate ML forecast results into `ForecastBundle` and agent
 #### Scenario: Response envelope generation
 - **WHEN** the agent finishes evaluating activity recommendations
 - **THEN** system generates a `ResponseEnvelope` containing official AQI, forecast series, decision status, source citations, and limitations
+

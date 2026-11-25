@@ -30,3 +30,4 @@ The system SHALL validate retrieved air quality records against schema rules, re
 #### Scenario: Missing or out of bound values
 - **WHEN** PM2.5 concentration value is negative or exceeds 1000 micrograms per cubic meter
 - **THEN** system flags the observation as invalid and records rejection reason in quality report
+

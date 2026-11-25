@@ -26,3 +26,4 @@ The system SHALL refuse to provide personalized medical dosage, medication adjus
 #### Scenario: User inquires medical medication
 - **WHEN** user query contains medication dosage questions such as inhaler puffs
 - **THEN** system refuses medical advice and outputs disclaimer redirecting to healthcare professionals
+
